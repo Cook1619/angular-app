@@ -12,7 +12,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string;
+  list: []
   constructor(){
     this.title = 'Angular Starter App'
+    this.list = []
   }
 }
