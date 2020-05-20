@@ -13,13 +13,35 @@ import { Component } from "@angular/core";
       <div>
         {{ isHappy ? ":-)" : ":-(" }}
       </div>
-      <input type="text" [value]="name">
+      <input 
+        type="text" 
+        [value]="name"
+        (blur)="handleBlur($event)"
+        (input)="handleInput($event)"
+        >
+        <button (click)="handleClick()">Change Name</button>
+        <div>
+          {{ name }}
+        </div>
+
+       
     </div>
   `
 })
 export class AppComponent {
   title: string;
   name: string = 'Matt'
+  handleBlur(event: any){
+    this.name = event.target.value
+    console.log(event)
+  }
+  handleInput(event: any){
+    this.name =  event.target.value
+  }
+  handleClick(){
+    console.log('fired')
+    this.name = 'Rodgers'
+  }
   numberOne: number = 1;
   numberTwo: number = 2;
   isHappy: boolean = true;
