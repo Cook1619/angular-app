@@ -5,21 +5,24 @@ import { Component } from "@angular/core";
   styleUrls: ["app.component.scss"],
   template: `
     <div class="app">
-      {{ title }}
+      <h1>{{ title }}</h1>
+      <h1 [innerHTML]="title"></h1>
       <div>
         {{ numberOne + numberTwo }}
       </div>
       <div>
-        {{ isHappy ? ':-)' : ':-('}}
+        {{ isHappy ? ":-)" : ":-(" }}
       </div>
+      <input type="text" [value]="name">
     </div>
-  `,
+  `
 })
 export class AppComponent {
   title: string;
+  name: string = 'Matt'
   numberOne: number = 1;
   numberTwo: number = 2;
-  isHappy: boolean =  true
+  isHappy: boolean = true;
   constructor() {
     this.title = "Angular Starter App";
   }
