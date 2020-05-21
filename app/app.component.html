@@ -13,30 +13,11 @@
         [class.checked-in]="passenger.checkedIn">
         </span>
       {{ i + 1 }}: {{ passenger.fullname }}
-    </li>
-  </ol>
-
-  <h1>AirLine Passengers</h1>
-  <ol>
-    <li *ngFor="let passenger of passengers; let i = index">
-        <span 
-        class="status"
-        [style.backgroundColor]= "passenger.checkedIn ? 'green' : 'red' ">
-        </span>
-      {{ i + 1 }}: {{ passenger.fullname }}
-    </li>
-  </ol>
-
-  <h1>AirLine Passengers</h1>
-  <ol>
-    <li *ngFor="let passenger of passengers; let i = index">
-        <span 
-        class="status"
-        [ngStyle]="{
-            backgroundColor: passenger.checkedIn ? 'green' : 'red'
-        }">
-        </span>
-      {{ i + 1 }}: {{ passenger.fullname }}
+      <p> {{ passenger | json }}</p>
+      <div class="date">
+        Check in date: 
+        {{ passenger.checkedInDate ? (passenger.checkedInDate | date: 'yMMMd' | uppercase) : 'Not checked in' }}
+      </div>
     </li>
   </ol>
 </div>
