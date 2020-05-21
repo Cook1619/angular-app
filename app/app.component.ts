@@ -4,6 +4,7 @@ interface Passenger {
   id: number,
   fullname: string,
   checkedIn: boolean
+  checkedInDate?: number
 }
 
 @Component({
@@ -21,26 +22,31 @@ export class AppComponent {
       id: 1,
       fullname: "Bill",
       checkedIn: true,
+      checkedInDate: 1490742000000
     },
     {
       id: 2,
       fullname: "Fred",
       checkedIn: false,
+      checkedInDate: null
     },
     {
       id: 3,
       fullname: "Nancy",
       checkedIn: true,
+      checkedInDate: 1460742000000
     },
     {
       id: 4,
       fullname: "taylor",
       checkedIn: true,
+      checkedInDate: null
     },
     {
       id: 5,
       fullname: "Mike",
       checkedIn: false,
+      checkedInDate: 1480742000000
     },
   ];
 }
