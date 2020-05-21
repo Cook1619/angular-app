@@ -1,50 +1,46 @@
 import { Component } from "@angular/core";
 
+interface Passenger {
+  id: number,
+  fullname: string,
+  checkedIn: boolean
+}
+
 @Component({
   selector: "app-root",
   styleUrls: ["app.component.scss"],
-  template: `
-    <div class="app">
-      <h1>{{ title }}</h1>
-      <h1 [innerHTML]="title"></h1>
-      <div>
-        {{ numberOne + numberTwo }}
-      </div>
-      <div>
-        {{ isHappy ? ":-)" : ":-(" }}
-      </div>
-      <input 
-        type="text"
-        [ngModel]="name"
-        (ngModelChange)="handleChange($event)"
-        >
-        <input 
-        type="text"
-        [(ngModel)]="name"
-        >
-        <button (click)="handleClick()">Change Name</button>
-        <div>
-          {{ name }}
-        </div>
-
-       
-    </div>
-  `
+  templateUrl: "./app.component.html",
 })
 export class AppComponent {
-  title: string;
-  name: string = 'Matt'
-  handleChange(value: string){
-    this.name = value
+  name: string = "";
+  handleChange(value: string) {
+    this.name = value;
   }
-  handleClick(){
-    console.log('fired')
-    this.name = 'Rodgers'
-  }
-  numberOne: number = 1;
-  numberTwo: number = 2;
-  isHappy: boolean = true;
-  constructor() {
-    this.title = "Angular Starter App";
-  }
+  passengers: Passenger[] = [
+    {
+      id: 1,
+      fullname: "Bill",
+      checkedIn: true,
+    },
+    {
+      id: 2,
+      fullname: "Fred",
+      checkedIn: false,
+    },
+    {
+      id: 3,
+      fullname: "Nancy",
+      checkedIn: true,
+    },
+    {
+      id: 4,
+      fullname: "taylor",
+      checkedIn: true,
+    },
+    {
+      id: 5,
+      fullname: "Mike",
+      checkedIn: false,
+    },
+  ];
 }
